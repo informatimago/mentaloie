@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>mentaloie</title>
+    <meta name="description" content="Calcul Mental - Jeu de l'Oie" />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Georgia", "Times New Roman", serif;
+        --ink: #2d2418;
+        --paper: #f6f1e7;
+        --accent: #c1694f;
+        --accent-light: #f0caa2;
+        --board: #fff8ea;
+      }
+      body {
+        margin: 0;
+        padding: 24px;
+        background: var(--paper);
+        color: var(--ink);
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      h1 {
+        margin: 0 0 8px 0;
+        letter-spacing: 0.5px;
+      }
+      p {
+        margin: 0 0 16px 0;
+      }
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      .status {
+        min-height: 24px;
+        padding: 8px 12px;
+        background: #fffaf0;
+        border: 1px solid #d9c9b2;
+        border-radius: 8px;
+        flex: 1 1 260px;
+      }
+      .toolbar button {
+        border: 1px solid var(--ink);
+        background: var(--accent-light);
+        color: var(--ink);
+        padding: 8px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .toolbar button:hover {
+        background: #f6d9b9;
+      }
+      .board {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(60px, 1fr));
+        grid-template-rows: repeat(5, minmax(60px, 1fr));
+        gap: 8px;
+        border: 2px dashed var(--ink);
+        padding: 20px;
+        background: radial-gradient(circle at 20% 10%, var(--board), var(--paper) 55%, #efe3cf);
+        border-radius: 18px;
+        min-height: 420px;
+      }
+      .cell {
+        position: relative;
+        border: 2px solid var(--ink);
+        border-radius: 12px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 0.95rem;
+        padding: 6px;
+        cursor: pointer;
+      }
+      .cell:hover {
+        background: #fff8ea;
+      }
+      .cell.token {
+        box-shadow: 0 0 0 3px var(--accent), 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+      }
+      .number {
+        position: absolute;
+        top: 6px;
+        left: 8px;
+        font-size: 0.75rem;
+        font-weight: bold;
+      }
+      .label {
+        font-size: 1.05rem;
+        font-weight: bold;
+      }
+      .cell:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+      }
+      @media (max-width: 700px) {
+        body {
+          padding: 16px;
+        }
+        .board {
+          gap: 6px;
+          padding: 16px;
+        }
+        .cell {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>mentaloie</h1>
+      <p>Calcul mental: suis les expressions pour atteindre la case FIN.</p>
+      <div class="toolbar">
+        <div class="status" id="status" aria-live="polite"></div>
+        <button id="reset-same" type="button">Rejouer ce jeu</button>
+        <button id="reset-new" type="button">Nouveau jeu</button>
+      </div>
+      <div class="board" id="board" aria-live="polite"></div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

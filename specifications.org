@@ -1,0 +1,97 @@
+* Mentaloie
+
+Jeu de calcul mental / jeu de l'oie.
+
+Le jeu se joue sur 16 cases numérotées de 1 à 16.
+Sur chaque case se trouve une petite expression arithmétique que le
+joueur doit calculer pour trouver la case suivante. Et ainsi de suite
+jusqu'à arriver à la case étiquetée "FIN".
+
+** Initialisation du jeu
+
+On commence par la première case.
+
+Une des 15 autre case est choisie aléatoirement et est étiquettée avec
+le mot "FIN": c'est le but du jeu, la ligne d'arrivée.
+
+Entre la première case et la case FIN, les autres cases sont ordonnées
+de façon aléatoire.
+
+On obtient ainsi une séquence de cases numérotées qui commence par 1,
+fini par une case f contenant "F", et entre les deux, sont numérotées
+dans le désordre.
+
+Maintenant pour chaque case, exclue la case FIN, on doit créer une
+expression algébrique dont le résultat est le numéro de la case
+suivante.
+
+Création de l'expression algébrique pour la case suivante N.
+
+Les opérations binaires +, -, * et ÷ (division entière) peuvent être
+utilisée, (une ou deux opérations) avec des nombre entiers de 1 à 3
+chiffres.
+
+   a, b, c ∈ [1,999]
+   f, g ∈ { +, -, *, ÷}
+
+   a f b = N
+   ou:
+   a f b g c = N
+
+(note, avec 2 opérations f et g, l'ordre de priorité
+ des opérations s'applique; ça peut être
+ 
+   a f (b g c) = N
+   ou:
+   (a f b) g c = N
+
+Trouver une solution aléatoire pour chaque numéro de case suivant N,
+et étiqueter la case la précédant avec l'expression arithmétique.
+
+
+Par exemple, si on a:
+
+| indice | numéro de case | étiquette | autre possibilités     |
+|      0 |              1 | 1+2       | 9÷3, 12÷4, 102-99, etc |
+|      1 |              3 | 16-1      | 3*5, 45÷3, …           |
+|      2 |             15 | …         | …                      |
+|      3 |             14 |           |                        |
+|      4 |              6 |           |                        |
+|      5 |             10 |           |                        |
+|      6 |             13 |           |                        |
+|      7 |              2 |           |                        |
+|      8 |             12 |           |                        |
+|      9 |             11 |           |                        |
+|     10 |              5 |           |                        |
+|     11 |              7 |           |                        |
+|     12 |              8 |           |                        |
+|     13 |             16 |           |                        |
+|     14 |              4 | 3*3       | 27÷3, 4+5, 63-54, …    |
+|     15 |              9 | FIN       |                        |
+
+
+Finalement, trier les cases par leur numéro de case, de 1 à 16.
+
+Dessiner les cases dans l'ordre autour d'un carré de 5 case de côté:
+
+  # # # # #
+          #
+  # #     #
+  #       #
+  # # # # #
+
+
+** Déroulement du jeu
+
+Le joueur devra cliquer sur la première case, un jeton est dessinée
+sur la case. Le joueur doit effectuer le calcul mental pour trouver
+la case suivante, et cliquer dessus.
+
+Le programme doit vérifier que l'expression arithmétique et le numéro
+de la case cliquée correspond. Dans ce cas, le jeton est effacé de la
+case précédente, et est dessiné sur la nouvelle case. Sinon un bip est
+émis.
+
+On  répète jusqu'à  arriver à  la case  FIN, le  programme peut  alors
+féliciter le joueur,  et lui proposer de recommencer (le  même jeu, ou
+un nouveau jeu généré aléatoirement).

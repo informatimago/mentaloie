@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>mentaloie - Tests</title>
+    <style>
+      body {
+        font-family: "Georgia", "Times New Roman", serif;
+        background: #f6f1e7;
+        color: #2d2418;
+        padding: 24px;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: min(720px, 100%);
+        background: #fffaf0;
+        border: 1px solid #d9c9b2;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 8px 12px;
+        border-bottom: 1px solid #e5d7c4;
+      }
+      th {
+        background: #f0caa2;
+      }
+      .ok {
+        color: #2f5f3b;
+      }
+      .fail {
+        color: #8b2c2c;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>mentaloie - Tests unitaires</h1>
+    <p>Ouvre cette page dans un navigateur pour lancer les tests.</p>
+    <p id="file-warning" class="fail" hidden>
+      Cette page est ouverte en mode fichier (file://). Les modules JavaScript ne
+      se chargent pas toujours dans ce mode. Lance un petit serveur web local puis
+      ouvre http://localhost:8000/web/tests.html .
+    </p>
+    <table id="results" aria-live="polite">
+      <thead>
+        <tr>
+          <th>Test</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      if (window.location.protocol === "file:") {
+        const warning = document.getElementById("file-warning");
+        if (warning) warning.hidden = false;
+      }
+    </script>
+    <script type="module" src="tests.js"></script>
+  </body>
+</html>

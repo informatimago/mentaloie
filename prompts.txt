@@ -1,0 +1,30 @@
+
+
+codex exec --full-auto 'We are creating a new project: a little javascript game. The name is mentaloie (Calcul Mental - Jeu de l'\''Oie). Create the readme, a web directory with an index.html and a javascript source. I will explain the game later.'
+
+
+codex exec --full-auto 'Lire le fichier specifications.org, et implémenter le jeu en javascript.Implémenter des tests unitaires pour valider les fonctions intermédiaires.'
+
+codex exec --full-auto <<'EOF'
+Lire le fichier specifications.org j'ai fait quelques ajouts, et implémenter le jeu en javascript.
+Implémenter correctement l'initialisation du jeu, et l'affichage des cases.
+Implémenter des tests unitaires pour valider les fonctions intermédiaires.
+S'assurer que lorsqu'on charge web/tests.html, une table s'affiche avec les tests exécutés et success/failure.
+EOF
+
+codex exec --full-auto <<'EOF'
+Lire le fichier specifications.org j'ai fait quelques ajouts, et implémenter le jeu en javascript.
+Implémenter correctement l'initialisation du jeu, et l'affichage des cases.tio
+S'assurer que l'initialisation du jeu et son affichage commence automatiquement quand on charge la page index.html.
+
+Implémenter des tests unitaires pour valider les fonctions intermédiaires.
+S'assurer que lorsqu'on charge web/tests.html, une table s'affiche avec les tests exécutés et success/failure.
+Il doit y avoir au moins un test pour chaque fonction intermédiaire.
+EOF
+
+codex exec --full-auto <<'EOF'
+Bon, alors ça ne va pas.
+
+web/tests.html n'affiche aucun test. Je ne connais pas javascript, mais peut etre manque-t'il un onload ou quelque chose?
+
+EOF
